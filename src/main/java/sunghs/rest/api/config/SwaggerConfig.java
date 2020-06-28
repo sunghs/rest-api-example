@@ -31,7 +31,7 @@ public class SwaggerConfig {
                 "Sample API",
                 "Sample Rest API",
                 "1.0.0",
-                "",
+                "https://sunghs.service.example.com",
                 new Contact("sunghs", "https://sunghs.tistory.com", "sunghs@example.com"),
                 "xxx-license",
                 "https://license.example.com",

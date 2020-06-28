@@ -17,8 +17,8 @@ public class UserController {
     private final UserService userService;
 
     @ApiOperation("유저 정보 조회")
-    @GetMapping("/get")
-    public String get(@ApiParam(value = "유저 Id", required = true) @RequestParam final String id) {
+    @GetMapping("/get/{id}")
+    public UserInfo get(@ApiParam(value = "유저 Id", required = true) @PathVariable(value = "id") final long id) {
         return userService.get(id);
     }
 
