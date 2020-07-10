@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sunghs.rest.api.exception.UserException;
 import sunghs.rest.api.model.UserInfo;
 import sunghs.rest.api.service.UserService;
 
@@ -45,5 +46,17 @@ public class UserController {
     @PostMapping("/set")
     public String set(@ApiParam(value = "유저 정보", required = true) @RequestBody final UserInfo userInfo) {
         return userService.set(userInfo);
+    }
+
+    @ApiOperation("UserException 발생")
+    @PostMapping("/exception/user")
+    public String userException(@ApiParam(value = "유저 정보", required = true) @RequestBody final UserInfo userInfo) {
+        throw new UserException("유저 에러 발생");
+    }
+
+    @ApiOperation("Exception 발생")
+    @PostMapping("/exception/default")
+    public String defaultException(@ApiParam(value = "유저 정보", required = true) @RequestBody final UserInfo userInfo) {
+        throw new RuntimeException("다른 에러 발생");
     }
 }

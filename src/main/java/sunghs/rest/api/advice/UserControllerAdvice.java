@@ -1,7 +1,5 @@
 package sunghs.rest.api.advice;
 
-import java.nio.charset.StandardCharsets;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,6 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import sunghs.rest.api.exception.UserException;
 import sunghs.rest.api.model.ExceptionInfo;
+
+import javax.servlet.http.HttpServletRequest;
+import java.nio.charset.StandardCharsets;
 
 @RestControllerAdvice
 @Slf4j
