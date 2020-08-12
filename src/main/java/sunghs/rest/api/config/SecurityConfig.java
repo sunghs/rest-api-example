@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-        // 구동 시 메모리에 특정 아이디와 비밀번호를 올림, 이외의 정보로는 접근할 수 없음
+        // CASE 1. 구동 시 메모리에 특정 아이디와 비밀번호를 올림, 이외의 정보로는 접근할 수 없음
         auth.inMemoryAuthentication()
             .withUser("sunghs")
             .password(passwordEncoder.encode("1234"))
@@ -32,7 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .withUser("user")
             .password(passwordEncoder.encode("2345"))
             .roles("USER");
-        auth.authenticationProvider(userAuthenticationProvider);
+
+        // CASE 2. AuthenticationProvider에 권한 체크 위임
+        //auth.authenticationProvider(userAuthenticationProvider);
     }
 
     @Override
