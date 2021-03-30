@@ -68,4 +68,9 @@ public class SpringBootTests {
             .getResponse();
 
     }
+
+    @Test
+    public void injectionTest() {
+        userService.get(1);
+    }
 }
