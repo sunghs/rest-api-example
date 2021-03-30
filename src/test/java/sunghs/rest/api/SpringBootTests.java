@@ -66,7 +66,6 @@ public class SpringBootTests {
             .andExpect(MockMvcResultMatchers.content().string(HttpStatus.OK.toString()))
             .andReturn()
             .getResponse();
-
     }
 
     @Test
