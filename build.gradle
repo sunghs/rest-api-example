@@ -1,12 +1,19 @@
+buildscript {
+    ext {
+        javaVersion = JavaVersion.VERSION_11
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.3.1.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'war'
 }
 
 group = 'sunghs'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = "${javaVersion}"
 
 configurations {
     compileOnly {
@@ -27,6 +34,14 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-test')
     implementation('org.springframework.boot:spring-boot-starter-security')
     implementation('org.springframework.security:spring-security-test')
+    // mybatis
+    implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4')
+    // hikariCP
+    implementation('org.springframework.boot:spring-boot-starter-jdbc')
+    // mysql
+    implementation('mysql:mysql-connector-java')
+    // bean validation
+    implementation('org.springframework.boot:spring-boot-starter-validation')
 
     // swagger2
     implementation('io.springfox:springfox-swagger2:2.9.2')

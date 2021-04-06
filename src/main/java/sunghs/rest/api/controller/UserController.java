@@ -37,14 +37,14 @@ public class UserController {
     private final UserService userService;
 
     @ApiOperation("유저 정보 조회")
-    @GetMapping("/get/{id}")
-    public UserInfo get(@ApiParam(value = "유저 Id", required = true) @PathVariable(value = "id") final long id) {
-        return userService.get(id);
+    @GetMapping("/get/{userId}")
+    public UserInfo get(@ApiParam(value = "유저 Id", required = true) @PathVariable(value = "userId") final String userId) {
+        return userService.get(userId);
     }
 
     @ApiOperation("유저 정보 등록")
     @PostMapping("/set")
-    public String set(@ApiParam(value = "유저 정보", required = true) @RequestBody final UserInfo userInfo) {
+    public boolean set(@ApiParam(value = "유저 정보", required = true) @RequestBody final UserInfo userInfo) {
         return userService.set(userInfo);
     }
 

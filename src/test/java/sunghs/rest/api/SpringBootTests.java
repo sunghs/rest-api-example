@@ -50,9 +50,9 @@ public class SpringBootTests {
     @WithMockUser
     public void postTest() throws Exception {
         UserInfo userInfo = new UserInfo();
-        userInfo.setId(100);
-        userInfo.setName("sunghs");
-        userInfo.setAddress("earth");
+        userInfo.setUserName("sunghs");
+        userInfo.setUserPassword("qwert12345!@#$");
+        userInfo.setUserAddress1("earth");
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user/set")
             .content(objectMapper.writeValueAsString(userInfo))
@@ -70,6 +70,6 @@ public class SpringBootTests {
 
     @Test
     public void injectionTest() {
-        userService.get(1);
+        userService.get("test");
     }
 }

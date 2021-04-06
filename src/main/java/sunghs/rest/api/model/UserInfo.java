@@ -2,6 +2,7 @@ package sunghs.rest.api.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import javax.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -10,14 +11,28 @@ import java.util.List;
 @Data
 public class UserInfo {
 
+    @Size(max = 11)
+    private long seq;
+
     @ApiModelProperty(value = "유저 id", required = true)
-    private long id;
+    @Size(max = 30)
+    private String userId;
+
+    @ApiModelProperty(value = "유저 id", required = true)
+    @Size(max = 512)
+    private String userPassword;
 
     @ApiModelProperty(value = "유저 이름", required = true)
-    private String name;
+    @Size(max = 20)
+    private String userName;
 
-    @ApiModelProperty(value = "주소", allowableValues = ",인천,서울,대전")
-    private String address;
+    @ApiModelProperty(value = "주소1")
+    @Size(max = 256)
+    private String userAddress1;
+
+    @ApiModelProperty(value = "주소2")
+    @Size(max = 256)
+    private String userAddress2;
 
     @ApiModelProperty(value = "유저 기록", hidden = true)
     private List<String> userLog;
