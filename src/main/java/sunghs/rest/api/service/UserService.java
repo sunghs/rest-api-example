@@ -18,7 +18,7 @@ public class UserService {
     /**
      * 유저 정보 조회
      *
-     * @param id 유저 id
+     * @param userId 유저 id
      * @return UserInfo
      */
     public UserInfo get(final String userId) {

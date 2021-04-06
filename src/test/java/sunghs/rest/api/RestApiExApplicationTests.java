@@ -48,7 +48,7 @@ public class RestApiExApplicationTests {
     // 유저 조회 테스트
     @Test
     public void getTest() throws Exception {
-        String url = "/user/get/1";
+        String url = "/user/get/test3";
         mockMvc.perform(MockMvcRequestBuilders.get(url)
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(result -> {
@@ -61,9 +61,11 @@ public class RestApiExApplicationTests {
     @Test
     public void setTest() throws Exception {
         UserInfo userInfo = new UserInfo();
-        userInfo.setId(1);
-        userInfo.setAddress("서울");
-        userInfo.setName("name");
+        userInfo.setUserId("insertUser");
+        userInfo.setUserPassword("123123123");
+        userInfo.setUserName("name");
+        userInfo.setUserAddress1("seoul");
+        userInfo.setUserAddress2("12345");
 
         String content = objectMapper.writeValueAsString(userInfo);
         log.info(content);
