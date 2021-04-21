@@ -1,6 +1,6 @@
 package sunghs.rest.api.service.listener;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
@@ -17,7 +17,7 @@ public class UserEventHandler {
 
     @EventListener
     public void process(UserEventDto userEventDto) {
-        log.info("대상자 조회 : {}, 시간 {}", userEventDto, LocalDateTime.now());
+        log.info("대상자 조회 : {}, 시간 {}", userEventDto, LocalTime.now());
     }
 
     @Async
